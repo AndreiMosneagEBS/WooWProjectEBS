@@ -21,12 +21,8 @@
 		8EDC24602822823F007B0CF1 /* HiderCellFavoritesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC245C2822823F007B0CF1 /* HiderCellFavoritesTableView.swift */; };
 		8EDC24612822823F007B0CF1 /* ProductCellFavoritesCV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC245D2822823F007B0CF1 /* ProductCellFavoritesCV.xib */; };
 		8EDC246428228249007B0CF1 /* ProductCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC246328228249007B0CF1 /* ProductCellType.swift */; };
-		8EDC247028228250007B0CF1 /* FavoriteCV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC246728228250007B0CF1 /* FavoriteCV.xib */; };
-		8EDC247128228250007B0CF1 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC246828228250007B0CF1 /* FavoriteViewController.swift */; };
 		8EDC247228228250007B0CF1 /* FavoriteVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC246928228250007B0CF1 /* FavoriteVC.storyboard */; };
-		8EDC247328228250007B0CF1 /* FavoriteVCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC246A28228250007B0CF1 /* FavoriteVCV.swift */; };
 		8EDC247428228250007B0CF1 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC246B28228250007B0CF1 /* FavoriteVC.swift */; };
-		8EDC247528228250007B0CF1 /* FavoriteVCV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC246C28228250007B0CF1 /* FavoriteVCV.xib */; };
 		8EDC247628228250007B0CF1 /* FavoriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC246D28228250007B0CF1 /* FavoriteViewController.xib */; };
 		8EDC247728228250007B0CF1 /* FavoriteCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC246E28228250007B0CF1 /* FavoriteCV.swift */; };
 		8EDC24A12822826D007B0CF1 /* ProductsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC247B2822826D007B0CF1 /* ProductsInfo.swift */; };
@@ -42,17 +38,12 @@
 		8EDC24AB2822826D007B0CF1 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC24862822826D007B0CF1 /* ProductViewController.swift */; };
 		8EDC24AD2822826D007B0CF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC24892822826D007B0CF1 /* ViewController.swift */; };
 		8EDC24AE2822826D007B0CF1 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC248B2822826D007B0CF1 /* HeaderCell.xib */; };
-		8EDC24AF2822826D007B0CF1 /* HiderCellFavoriteCV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC248C2822826D007B0CF1 /* HiderCellFavoriteCV.xib */; };
 		8EDC24B02822826D007B0CF1 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC248D2822826D007B0CF1 /* ProductCell.swift */; };
-		8EDC24B12822826D007B0CF1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC248E2822826D007B0CF1 /* CollectionViewCell.swift */; };
 		8EDC24B22822826D007B0CF1 /* ProductCellGread.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC248F2822826D007B0CF1 /* ProductCellGread.xib */; };
 		8EDC24B32822826D007B0CF1 /* FavoritesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC24902822826D007B0CF1 /* FavoritesHeaderCell.swift */; };
 		8EDC24B42822826D007B0CF1 /* FavoritesHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC24912822826D007B0CF1 /* FavoritesHeaderCell.xib */; };
 		8EDC24B52822826D007B0CF1 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC24922822826D007B0CF1 /* HeaderCell.swift */; };
 		8EDC24B62822826D007B0CF1 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC24932822826D007B0CF1 /* ProductCell.xib */; };
-		8EDC24B72822826D007B0CF1 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC24942822826D007B0CF1 /* CollectionViewCell.xib */; };
-		8EDC24B82822826D007B0CF1 /* HiderCellFavoriteCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC24952822826D007B0CF1 /* HiderCellFavoriteCV.swift */; };
-		8EDC24B92822826D007B0CF1 /* ProductCellGread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC24962822826D007B0CF1 /* ProductCellGread.swift */; };
 		8EDC24BA2822826D007B0CF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC24972822826D007B0CF1 /* LaunchScreen.storyboard */; };
 		8EDC24BC2822826D007B0CF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC24992822826D007B0CF1 /* Main.storyboard */; };
 		8EDC24BD2822826D007B0CF1 /* ProductSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC249C2822826D007B0CF1 /* ProductSection.swift */; };
@@ -82,12 +73,8 @@
 		8EDC245C2822823F007B0CF1 /* HiderCellFavoritesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiderCellFavoritesTableView.swift; sourceTree = "<group>"; };
 		8EDC245D2822823F007B0CF1 /* ProductCellFavoritesCV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCellFavoritesCV.xib; sourceTree = "<group>"; };
 		8EDC246328228249007B0CF1 /* ProductCellType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCellType.swift; sourceTree = "<group>"; };
-		8EDC246728228250007B0CF1 /* FavoriteCV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteCV.xib; sourceTree = "<group>"; };
-		8EDC246828228250007B0CF1 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		8EDC246928228250007B0CF1 /* FavoriteVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavoriteVC.storyboard; sourceTree = "<group>"; };
-		8EDC246A28228250007B0CF1 /* FavoriteVCV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVCV.swift; sourceTree = "<group>"; };
 		8EDC246B28228250007B0CF1 /* FavoriteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
-		8EDC246C28228250007B0CF1 /* FavoriteVCV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteVCV.xib; sourceTree = "<group>"; };
 		8EDC246D28228250007B0CF1 /* FavoriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteViewController.xib; sourceTree = "<group>"; };
 		8EDC246E28228250007B0CF1 /* FavoriteCV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCV.swift; sourceTree = "<group>"; };
 		8EDC247B2822826D007B0CF1 /* ProductsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsInfo.swift; sourceTree = "<group>"; };
@@ -103,17 +90,12 @@
 		8EDC24862822826D007B0CF1 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		8EDC24892822826D007B0CF1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8EDC248B2822826D007B0CF1 /* HeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
-		8EDC248C2822826D007B0CF1 /* HiderCellFavoriteCV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HiderCellFavoriteCV.xib; sourceTree = "<group>"; };
 		8EDC248D2822826D007B0CF1 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		8EDC248E2822826D007B0CF1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		8EDC248F2822826D007B0CF1 /* ProductCellGread.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCellGread.xib; sourceTree = "<group>"; };
 		8EDC24902822826D007B0CF1 /* FavoritesHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesHeaderCell.swift; sourceTree = "<group>"; };
 		8EDC24912822826D007B0CF1 /* FavoritesHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesHeaderCell.xib; sourceTree = "<group>"; };
 		8EDC24922822826D007B0CF1 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		8EDC24932822826D007B0CF1 /* ProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
-		8EDC24942822826D007B0CF1 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
-		8EDC24952822826D007B0CF1 /* HiderCellFavoriteCV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HiderCellFavoriteCV.swift; sourceTree = "<group>"; };
-		8EDC24962822826D007B0CF1 /* ProductCellGread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCellGread.swift; sourceTree = "<group>"; };
 		8EDC24972822826D007B0CF1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8EDC249A2822826D007B0CF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8EDC249C2822826D007B0CF1 /* ProductSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSection.swift; sourceTree = "<group>"; };
@@ -165,17 +147,15 @@
 		8EDC2435282281DF007B0CF1 /* WOW3 */ = {
 			isa = PBXGroup;
 			children = (
-				8EDC249B2822826D007B0CF1 /* Models */,
-				8EDC247A2822826D007B0CF1 /* PVC */,
 				8EDC24882822826D007B0CF1 /* VC */,
+				8EDC247A2822826D007B0CF1 /* PVC */,
 				8EDC246528228250007B0CF1 /* FavoritVC */,
+				8EDC249B2822826D007B0CF1 /* Models */,
 				8EDC246228228249007B0CF1 /* CellsType */,
 				8EDC24592822823F007B0CF1 /* CellFavorite */,
 				8EDC244A28228230007B0CF1 /* API */,
 				8EDC2436282281DF007B0CF1 /* AppDelegate.swift */,
-				8EDC24892822826D007B0CF1 /* ViewController.swift */,
 				8EDC2438282281DF007B0CF1 /* SceneDelegate.swift */,
-				8EDC24992822826D007B0CF1 /* Main.storyboard */,
 				8EDC24972822826D007B0CF1 /* LaunchScreen.storyboard */,
 				8EDC243F282281E0007B0CF1 /* Assets.xcassets */,
 				8EDC2444282281E0007B0CF1 /* Info.plist */,
@@ -218,14 +198,10 @@
 		8EDC246528228250007B0CF1 /* FavoritVC */ = {
 			isa = PBXGroup;
 			children = (
-				8EDC246728228250007B0CF1 /* FavoriteCV.xib */,
-				8EDC246828228250007B0CF1 /* FavoriteViewController.swift */,
-				8EDC246928228250007B0CF1 /* FavoriteVC.storyboard */,
-				8EDC246A28228250007B0CF1 /* FavoriteVCV.swift */,
 				8EDC246B28228250007B0CF1 /* FavoriteVC.swift */,
-				8EDC246C28228250007B0CF1 /* FavoriteVCV.xib */,
-				8EDC246D28228250007B0CF1 /* FavoriteViewController.xib */,
+				8EDC246928228250007B0CF1 /* FavoriteVC.storyboard */,
 				8EDC246E28228250007B0CF1 /* FavoriteCV.swift */,
+				8EDC246D28228250007B0CF1 /* FavoriteViewController.xib */,
 			);
 			path = FavoritVC;
 			sourceTree = "<group>";
@@ -259,6 +235,8 @@
 		8EDC24882822826D007B0CF1 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				8EDC24892822826D007B0CF1 /* ViewController.swift */,
+				8EDC24992822826D007B0CF1 /* Main.storyboard */,
 				8EDC248A2822826D007B0CF1 /* Cells */,
 			);
 			path = VC;
@@ -267,18 +245,13 @@
 		8EDC248A2822826D007B0CF1 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8EDC24922822826D007B0CF1 /* HeaderCell.swift */,
 				8EDC248B2822826D007B0CF1 /* HeaderCell.xib */,
-				8EDC248C2822826D007B0CF1 /* HiderCellFavoriteCV.xib */,
 				8EDC248D2822826D007B0CF1 /* ProductCell.swift */,
-				8EDC248E2822826D007B0CF1 /* CollectionViewCell.swift */,
+				8EDC24932822826D007B0CF1 /* ProductCell.xib */,
 				8EDC248F2822826D007B0CF1 /* ProductCellGread.xib */,
 				8EDC24902822826D007B0CF1 /* FavoritesHeaderCell.swift */,
 				8EDC24912822826D007B0CF1 /* FavoritesHeaderCell.xib */,
-				8EDC24922822826D007B0CF1 /* HeaderCell.swift */,
-				8EDC24932822826D007B0CF1 /* ProductCell.xib */,
-				8EDC24942822826D007B0CF1 /* CollectionViewCell.xib */,
-				8EDC24952822826D007B0CF1 /* HiderCellFavoriteCV.swift */,
-				8EDC24962822826D007B0CF1 /* ProductCellGread.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -365,12 +338,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EDC24A82822826D007B0CF1 /* ProductInfoCell.xib in Resources */,
-				8EDC247028228250007B0CF1 /* FavoriteCV.xib in Resources */,
 				8EDC24AA2822826D007B0CF1 /* Product.storyboard in Resources */,
 				8EDC24B42822826D007B0CF1 /* FavoritesHeaderCell.xib in Resources */,
 				8EDC2440282281E0007B0CF1 /* Assets.xcassets in Resources */,
 				8EDC24612822823F007B0CF1 /* ProductCellFavoritesCV.xib in Resources */,
-				8EDC24B72822826D007B0CF1 /* CollectionViewCell.xib in Resources */,
 				8EDC24BA2822826D007B0CF1 /* LaunchScreen.storyboard in Resources */,
 				8EDC24B22822826D007B0CF1 /* ProductCellGread.xib in Resources */,
 				8EDC24A42822826D007B0CF1 /* ProductImageCell.xib in Resources */,
@@ -378,8 +349,6 @@
 				8EDC24AE2822826D007B0CF1 /* HeaderCell.xib in Resources */,
 				8EDC245E2822823F007B0CF1 /* HiderCellFavoritesTableView.xib in Resources */,
 				8EDC247228228250007B0CF1 /* FavoriteVC.storyboard in Resources */,
-				8EDC247528228250007B0CF1 /* FavoriteVCV.xib in Resources */,
-				8EDC24AF2822826D007B0CF1 /* HiderCellFavoriteCV.xib in Resources */,
 				8EDC24A32822826D007B0CF1 /* ProductInformationCell.xib in Resources */,
 				8EDC24B62822826D007B0CF1 /* ProductCell.xib in Resources */,
 				8EDC24A62822826D007B0CF1 /* ProductImageCellCollectionViewCell.xib in Resources */,
@@ -441,15 +410,12 @@
 				8EDC24A12822826D007B0CF1 /* ProductsInfo.swift in Sources */,
 				8EDC245728228230007B0CF1 /* Identifier+.swift in Sources */,
 				8EDC24A22822826D007B0CF1 /* ProductImageCellCollectionViewCell.swift in Sources */,
-				8EDC24B82822826D007B0CF1 /* HiderCellFavoriteCV.swift in Sources */,
 				8EDC247428228250007B0CF1 /* FavoriteVC.swift in Sources */,
 				8EDC24602822823F007B0CF1 /* HiderCellFavoritesTableView.swift in Sources */,
 				8EDC24A52822826D007B0CF1 /* ProductImageCell.swift in Sources */,
 				8EDC24C12822826D007B0CF1 /* Favorite.swift in Sources */,
 				8EDC24AD2822826D007B0CF1 /* ViewController.swift in Sources */,
 				8EDC24C02822826D007B0CF1 /* CardProduct.swift in Sources */,
-				8EDC24B12822826D007B0CF1 /* CollectionViewCell.swift in Sources */,
-				8EDC247128228250007B0CF1 /* FavoriteViewController.swift in Sources */,
 				8EDC245328228230007B0CF1 /* Data.swift in Sources */,
 				8EDC245628228230007B0CF1 /* debugAPI.swift in Sources */,
 				8EDC24A92822826D007B0CF1 /* ProductInfoCell.swift in Sources */,
@@ -457,10 +423,8 @@
 				8EDC24B32822826D007B0CF1 /* FavoritesHeaderCell.swift in Sources */,
 				8EDC24B02822826D007B0CF1 /* ProductCell.swift in Sources */,
 				8EDC245428228230007B0CF1 /* ApiData.swift in Sources */,
-				8EDC24B92822826D007B0CF1 /* ProductCellGread.swift in Sources */,
 				8EDC246428228249007B0CF1 /* ProductCellType.swift in Sources */,
 				8EDC2437282281DF007B0CF1 /* AppDelegate.swift in Sources */,
-				8EDC247328228250007B0CF1 /* FavoriteVCV.swift in Sources */,
 				8EDC2439282281DF007B0CF1 /* SceneDelegate.swift in Sources */,
 				8EDC245528228230007B0CF1 /* ApiService.swift in Sources */,
 				8EDC24A72822826D007B0CF1 /* ProductInformationCell.swift in Sources */,

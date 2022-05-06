@@ -16,7 +16,6 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet private weak var productImage: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var price: UILabel!
-    @IBOutlet weak var separatorView: UIView!
     @IBOutlet private weak var salePrice: UILabel!
     @IBOutlet weak var favoritesButton: UIButton!
     
@@ -27,7 +26,7 @@ class ProductCell: UICollectionViewCell {
     
     enum ButtonType {
         case addToCart(id: Int)
-        case addToFavorite(id: Int)
+        case addToFavorite(model: Products)
     }
     
     override func awakeFromNib() {
@@ -43,7 +42,7 @@ class ProductCell: UICollectionViewCell {
         guard let model = model else {
             return
         }
-        self.onTapFavoriteButton?(.addToFavorite(id: model.id))
+        self.onTapFavoriteButton?(.addToFavorite(model: model))
     }
     
     struct Params {

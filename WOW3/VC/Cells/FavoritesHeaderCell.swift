@@ -21,7 +21,7 @@ class FavoritesHeaderCell: UICollectionViewCell {
         countView.layer.cornerRadius = countView.bounds.height / 2
         
     }
-    
+
     func setup() {
         countFavoritesProducts.text = String(FavoriteManager.shared.countFavorite())
     }

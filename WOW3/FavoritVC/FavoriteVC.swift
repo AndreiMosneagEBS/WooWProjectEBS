@@ -12,16 +12,20 @@ class FavoriteVC: UIViewController {
     
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
     private var products: [Products] = []
     private var sectionsFavorites: [Sections.Section] = []
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        generateAllSectionsFavorites()
+        configCollectionView()
+    }
     
+    private func configCollectionView() {
+        favoritesCollectionView.delegate = self
+        favoritesCollectionView.dataSource = self
+        favoritesCollectionView.register(UINib(nibName: "FavoritesHeaderCell", bundle: nil), forCellWithReuseIdentifier:"FavoritesHeaderCell")
+    }
     
     private func generateCartProduct(articles: [Products]) -> Sections.Section {
         var newcell: [Sections.CellType] = []
@@ -53,7 +57,43 @@ class FavoriteVC: UIViewController {
             self.favoritesCollectionView.reloadData()
         }
     }
+}
 
+//MARK: - UICollectionViewDelegate
+
+extension FavoriteVC: UICollectionViewDelegate {
+    
+}
+
+//MARK: - UICollectionViewDataSource
+
+extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellType = sectionsFavorites[indexPath.section].cell[indexPath.item]
+        switch cellType {
+        case .header:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesHeaderCell", for: indexPath) as! FavoritesHeaderCell
+            cell.setup()
+            return cell
+        case .product(model: let model):
+            return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellType = sectionsFavorites[indexPath.section].cell[indexPath.item]
+        let width = collectionView.bounds.size.width
+        switch cellType {
+        case .header:
+            return CGSize(width: width, height: 60)
+        case .product:
+            return CGSize(width: width, height: 220)
+        }
+    }
 }
 
 extension FavoriteVC: ProductCellDelegate {
@@ -63,7 +103,7 @@ extension FavoriteVC: ProductCellDelegate {
             CartManager.shared.saveToCart(id: id)
             generateAllSectionsFavorites()
         case .addToFavorite(let id):
-            FavoriteManager.shared.saveToFavorite(id: id)
+            //            FavoriteManager.shared.saveToFavorite(id: id)
             generateAllSectionsFavorites()
         }
     }

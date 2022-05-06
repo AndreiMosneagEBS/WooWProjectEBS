@@ -187,8 +187,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func favoritesButton(_ sender: Any) {
-        self.isFavorite.toggle()
-        self.generateAllSections()
+        let favoritesVC = UIStoryboard(name: "FavoriteVC", bundle: nil).instantiateViewController(withIdentifier:"FavoriteVC")
+        self.navigationController?.pushViewController(favoritesVC, animated: true)
+        FavoriteManager.shared.getAllFavorites()
+        
+//        self.isFavorite.toggle()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -199,7 +202,6 @@ class ViewController: UIViewController {
                 return
             }
             vc.setup(model: model)
-            print(model.id)
             navigationController?.pushViewController(vc, animated: true)
         }
         
@@ -241,13 +243,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
       
             switch cellType {
             case .header:
-                if isFavorite {
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesHeaderCell.identifier, for: indexPath) as! FavoritesHeaderCell
-                    cell.configHeader()
-                    cell.setup()
-                    return cell
-                } else {
-                
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
                 cell.onTapSortButton = { [weak self] in
                     guard let self = self else {return}
@@ -267,7 +262,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 }
                 
                 return cell
-                }
+                
             case .product(let product):
                 switch porductsDisplayType {
                 case .grid:
@@ -276,10 +271,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell.onTapFavoriteButton = { [weak self] buttonType in
                         switch buttonType {
                         case .addToCart(let id):
-                            FavoriteManager.shared.saveToFavorite(id: id)
                             self?.generateAllSections()
-                        case .addToFavorite(let id):
-                            FavoriteManager.shared.saveToFavorite(id: id)
+                        case .addToFavorite(let products):
+                            FavoriteManager.shared.saveToFavorite(product: products)
                             self?.generateAllSections()
                         }
                     }

@@ -11,13 +11,13 @@
         <!--FavoriteVC-->
         <scene sceneID="0t6-L5-Xv5">
             <objects>
-                <viewController id="6jq-XK-PE3" customClass="FavoriteVC" customModule="debagJson" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6jq-XK-PE3" customClass="FavoriteVC" customModule="WOW3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lby-mH-FmF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K0r-ua-zRe">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="FavoritesVC" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="K0r-ua-zRe">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bpd-q5-DH7">
                                     <size key="itemSize" width="128" height="128"/>
@@ -93,55 +93,18 @@
                             <constraint firstItem="rvh-fB-0mN" firstAttribute="leading" secondItem="KgT-th-T7f" secondAttribute="leading" constant="15" id="mRz-Uq-pz7"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pX0-ca-KUc">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="vIH-XF-Qzc">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3o8-G5-2rH">
-                                <rect key="frame" x="20" y="4" width="92" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="IconAccount"/>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="y7L-kl-ckQ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="7Tz-ii-jzB">
-                                <rect key="frame" x="302" y="5" width="92" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="HeartNavBar"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="collectionView" destination="K0r-ua-zRe" id="G1A-Zr-d4q"/>
-                        <outlet property="favoritesCollectionView" destination="K0r-ua-zRe" id="7Xv-tm-JJQ"/>
-                        <outlet property="footerButton" destination="UBE-2m-dsc" id="vwR-lH-2vF"/>
+                        <outlet property="favoritesCollectionView" destination="K0r-ua-zRe" id="ll4-81-Luc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mvZ-HS-ksC" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43" y="57"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="EKV-qd-Ozd">
-            <objects>
-                <navigationController id="zB5-kP-4G8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QCc-Wu-rqc">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="6jq-XK-PE3" kind="relationship" relationship="rootViewController" id="6pz-5w-Aa2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QbD-D7-fSN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-684" y="57"/>
+            <point key="canvasLocation" x="183" y="44"/>
         </scene>
     </scenes>
     <resources>
         <image name="Cart Empty" width="22" height="22"/>
-        <image name="HeartNavBar" width="22" height="20"/>
-        <image name="IconAccount" width="19" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
