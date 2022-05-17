@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     private var isPagination = false
     private var model: ProductResponse?
     private var isHiden: Bool = true
+    let realm = try! Realm()
     
 //    private var isLoading: Bool = false
 
@@ -42,6 +43,7 @@ class ViewController: UIViewController {
         setupFotterButton()
         configureRefreshControl()
         loadProducts()
+//        print("Realm is located at:", realm.configuration.fileURL!)
     }
     
     private func setupNavigationBarItem() {
@@ -154,9 +156,7 @@ class ViewController: UIViewController {
     }
     
     private func loadProducts() {
-//        if isLoading {
-//            return
-//        }
+
         
         isLoading = true
         
@@ -179,10 +179,6 @@ class ViewController: UIViewController {
             }
                 self.collectionView.refreshControl?.endRefreshing()
                 self.generateAllSections()
-            
-//            if self.collectionView.refreshControl?.isRefreshing == true {
-//                self.collectionView.refreshControl?.endRefreshing()
-//            }
         }
     }
     
@@ -190,8 +186,6 @@ class ViewController: UIViewController {
         let favoritesVC = UIStoryboard(name: "FavoriteVC", bundle: nil).instantiateViewController(withIdentifier:"FavoriteVC")
         self.navigationController?.pushViewController(favoritesVC, animated: true)
         FavoriteManager.shared.getAllFavorites()
-        
-//        self.isFavorite.toggle()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -270,7 +264,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell.setup(model: product)
                     cell.onTapFavoriteButton = { [weak self] buttonType in
                         switch buttonType {
-                        case .addToCart(let id):
+                        case .addToCart(_):
                             self?.generateAllSections()
                         case .addToFavorite(let products):
                             FavoriteManager.shared.saveToFavorite(product: products)
@@ -281,6 +275,16 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 case .list:
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
                     cell.setup(model: product)
+                    cell.onTapFavoriteButton = { [weak self] buttonType in
+                        switch buttonType {
+                        case .addToCart(_):
+                            self?.generateAllSections()
+                        case .addToFavorite(let products):
+                            FavoriteManager.shared.saveToFavorite(product: products)
+                            self?.generateAllSections()
+                        }
+                        
+                    }
                     return cell
                 }
             }

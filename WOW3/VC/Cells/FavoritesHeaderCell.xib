@@ -61,9 +61,6 @@
                                             <constraint firstAttribute="height" constant="15" id="dSi-Tf-bO3"/>
                                             <constraint firstAttribute="trailing" secondItem="zwB-Ol-wWm" secondAttribute="trailing" id="fx8-sr-hsm"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="50"/>
-                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                             </stackView>

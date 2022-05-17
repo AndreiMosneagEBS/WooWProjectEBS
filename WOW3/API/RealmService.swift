@@ -31,9 +31,10 @@ struct FavoriteManager {
     
     func add(model: Products) throws {
         try realm.write {
-            let favorite: Favorite = Favorite(id: model.id, label: model.name , descriptionLabel: model.details, price: model.price)
-            realm.add(favorite)
-            print(model.name)
+            let favorite: Favorite = Favorite(id: model.id, label: model.name , descriptionLabel: model.details, price: model.price, image: model.category.icon ?? "")
+//            realm.add(favorite)
+            realm.add(favorite, update: .modified)
+//            print(model.name)
         }
     }
     
@@ -51,9 +52,9 @@ struct FavoriteManager {
     
     func getAllFavorites() -> [Favorite] {
 //        print(try! queryObjects(with: Favorite.self).map({ $0 }))
-        let favorites = realm.objects(Favorite.self).map({$0})
-        print(favorites)
-        return realm.objects(Favorite.self).map({$0})
+        let favorites: [Favorite] = realm.objects(Favorite.self).compactMap({$0})
+//        print(favorites)
+        return favorites
     }
     
     func countFavorite() -> Int {

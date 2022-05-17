@@ -11,16 +11,18 @@ import RealmSwift
 class Favorite: Object {
     @Persisted(primaryKey: true)
     @objc dynamic var id: Int
-    @objc dynamic var label: String = ""
-    @objc dynamic var descriptionLable: String = ""
-    @objc dynamic var price: Int = 0
+    @Persisted var label: String = ""
+    @Persisted var descriptionLable: String = ""
+    @Persisted var price: Int = 0
+    @Persisted var image: String = ""
+    
    
-    convenience init(id: Int, label: String, descriptionLabel: String, price: Int) {
+    convenience init(id: Int, label: String, descriptionLabel: String, price: Int, image: String) {
         self.init()
         self.id = id
         self.label = label
         self.descriptionLable = descriptionLabel
         self.price = price
-        
+        self.image = image
     }
 }

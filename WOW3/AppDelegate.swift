@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +31,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+//    func disFinishLaunchWithOptions() {
+//        let config = Realm.Configuration(
+//             schemaVersion: 1,
+//                migrationBlock: { migration, oldSchemaVersion in
+//                if (oldSchemaVersion < 1) {
+//                    // Nothing to do!
+//                    // Realm will automatically detect new properties and removed properties
+//                    // And will update the schema on disk automatically
+//                }
+//        })
+//        Realm.Configuration.defaultConfiguration = config
+//        let realm = try! Realm()
+//
+//    }
 
 
 }

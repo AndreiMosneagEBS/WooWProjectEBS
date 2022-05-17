@@ -12,11 +12,12 @@ class FavoriteVC: UIViewController {
     
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
     
-    private var products: [Products] = []
-    private var sectionsFavorites: [Sections.Section] = []
+    private var products: [Favorite] = []
+    private var sectionsFavorites: [FavoriteSections.Section] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.products = FavoriteManager.shared.getAllFavorites()
         generateAllSectionsFavorites()
         configCollectionView()
     }
@@ -25,30 +26,29 @@ class FavoriteVC: UIViewController {
         favoritesCollectionView.delegate = self
         favoritesCollectionView.dataSource = self
         favoritesCollectionView.register(UINib(nibName: "FavoritesHeaderCell", bundle: nil), forCellWithReuseIdentifier:"FavoritesHeaderCell")
+        favoritesCollectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
+        
     }
     
-    private func generateCartProduct(articles: [Products]) -> Sections.Section {
-        var newcell: [Sections.CellType] = []
-        for product in articles {
-            if CartManager.shared.checkCart(id: product.id) {
-                newcell.append(. product(model: product))
-            }
+    private func generateFavoriteProducts(articles: [Favorite]) -> FavoriteSections.Section {
+        var newcell: [FavoriteSections.CellType] = articles.map { favorites in
+            return FavoriteSections.CellType.favorites(model: favorites)
         }
-        let prodcutCell: Sections.Section = Sections.Section(type: .product , cell: newcell )
+        let prodcutCell: FavoriteSections.Section = FavoriteSections.Section(type: .product , cell: newcell)
         return prodcutCell
     }
     
-    func generateHiderSection()-> Sections.Section {
-        var headerSectionCell: [Sections.CellType] = []
+    func generateHiderSection()-> FavoriteSections.Section {
+        var headerSectionCell: [FavoriteSections.CellType] = []
         headerSectionCell.append(.header)
-        let headerSection: Sections.Section = Sections.Section(type: .header, cell: headerSectionCell)
+        let headerSection: FavoriteSections.Section = FavoriteSections.Section(type: .header, cell: headerSectionCell)
         return headerSection
     }
     
     func generateAllSectionsFavorites() {
         let hiderSection = generateHiderSection()
-        let productCardSection = generateCartProduct(articles: products)
-        var newSection: [Sections.Section] = []
+        let productCardSection = generateFavoriteProducts(articles: products)
+        var newSection: [FavoriteSections.Section] = []
         newSection.append(hiderSection)
         newSection.append(productCardSection)
         sectionsFavorites = newSection
@@ -59,18 +59,17 @@ class FavoriteVC: UIViewController {
     }
 }
 
-//MARK: - UICollectionViewDelegate
-
-extension FavoriteVC: UICollectionViewDelegate {
-    
-}
-
 //MARK: - UICollectionViewDataSource
 
-extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return sectionsFavorites[section].cell.count
     }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return sectionsFavorites.count
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellType = sectionsFavorites[indexPath.section].cell[indexPath.item]
@@ -79,8 +78,23 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesHeaderCell", for: indexPath) as! FavoritesHeaderCell
             cell.setup()
             return cell
-        case .product(model: let model):
-            return UICollectionViewCell()
+        case .favorites(let model):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
+            cell.favorites(model: model)
+            
+            cell.onTapFavoriteButton =  { [weak self] typeButton in
+                switch typeButton {
+                case .addToCart(id: let id):
+                    break
+                case .addToFavorite(model: let model):
+                    if FavoriteManager.shared.checkFavorite(id: model.id) {
+                        try! FavoriteManager.shared.delete(id: model.id)
+                    }
+                    self?.generateAllSectionsFavorites()
+                }
+            }
+            return cell
+        
         }
     }
     
@@ -90,8 +104,9 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         switch cellType {
         case .header:
             return CGSize(width: width, height: 60)
-        case .product:
+        case .favorites:
             return CGSize(width: width, height: 220)
+        
         }
     }
 }
@@ -103,7 +118,7 @@ extension FavoriteVC: ProductCellDelegate {
             CartManager.shared.saveToCart(id: id)
             generateAllSectionsFavorites()
         case .addToFavorite(let id):
-            //            FavoriteManager.shared.saveToFavorite(id: id)
+            FavoriteManager.shared.saveToFavorite(product: id)
             generateAllSectionsFavorites()
         }
     }

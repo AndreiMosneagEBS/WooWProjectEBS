@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 protocol ProductCellDelegate : AnyObject {
     func pressButton (_ vc: ProductCell, button: ProductCell.ButtonType)
 }
@@ -63,7 +64,17 @@ class ProductCell: UICollectionViewCell {
         
         let icon = FavoriteManager.shared.checkFavorite(id: model.id) ? "fillHeart" : "heart"
         let image = UIImage(named: icon)
+        let imageHeart = UIImageView(frame: CGRect(x: 2, y: 2, width: 2, height: 2))
+        imageHeart.image = image
         favoritesButton.setImage(image, for: .normal)
+    }
+    
+    func favorites(model: Favorite) {
+        nameLabel.text = model.label
+        descriptionLabel.text = model.descriptionLable
+        price.text = "\(model.price)"
+        getImage(url: model.image)
+        
     }
     
     private func getImage(url: String) {
