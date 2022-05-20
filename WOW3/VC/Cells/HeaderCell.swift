@@ -69,9 +69,8 @@ class HeaderCell: UICollectionViewCell {
         self.onTapListView?(.list)
         changeIcon(type: .list)
 
-        
     }
-    
+
 }
 extension UIButton{
 

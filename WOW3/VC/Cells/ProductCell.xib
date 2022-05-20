@@ -82,6 +82,7 @@
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="28" id="qLv-Vf-MHe"/>
                                             <constraint firstAttribute="width" constant="28" id="weo-Aj-cuU"/>
                                         </constraints>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="Heart" title=""/>
                                         <connections>

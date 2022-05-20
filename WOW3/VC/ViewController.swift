@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var footerButton: UIView!
+    @IBOutlet weak var countProductFooter: UILabel!
     
     private var sections: [ProductCellType.Sections] = []
     private var cells: [ProductCellType.CellType] = []
@@ -22,7 +23,6 @@ class ViewController: UIViewController {
     private var pagination: Pagination = Pagination()
     private var isFavorite: Bool = false
     let refreshControl = UIRefreshControl()
-//    private var favoriteID: [Products : Bool] = [:]
     private var products: [Products] = []
     private var sectionsFavorites: [ProductCellType.Sections] = []
 
@@ -31,19 +31,13 @@ class ViewController: UIViewController {
     private var isHiden: Bool = true
     let realm = try! Realm()
     
-//    private var isLoading: Bool = false
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollection()
-//        generateAllSections()
-//        generateProductCell(page: page)
         setupNavigationBarItem()
         setupFotterButton()
         configureRefreshControl()
         loadProducts()
-//        print("Realm is located at:", realm.configuration.fileURL!)
     }
     
     private func setupNavigationBarItem() {
@@ -110,7 +104,6 @@ class ViewController: UIViewController {
         
         var newSection:[ProductCellType.Sections] = []
         newSection.append(headerSections)
-//        newSection.append(productsSections)
         
         if isFavorite {
             newSection.append(favoritesSection)
@@ -133,13 +126,15 @@ class ViewController: UIViewController {
     }
     func generateProductCell(page: Int) {
 
-//        if pagination{
         self.isPagination = true
         FetchData.shared.fetchProducts(pagination:pagination , page: page) { [weak self] response in
             guard let response = response else {return}
             self?.products.append(contentsOf: response.results)
-//            self?.generateAllSections()
+            
+            self?.page += 1
             self?.isPagination = false
+            
+            self?.generateAllSections()
         }
         
     }
@@ -166,7 +161,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            if response.pagination?.currentPage == 1 {
+            if response.pagination?.currentPage == 2 {
                 self.products = response.results
             } else {
                 self.products.append(contentsOf: response.results)
@@ -200,7 +195,6 @@ class ViewController: UIViewController {
         }
         
     }
-    // integration realm
     private func generateCartProduct(articles: [Products]) -> Sections.Section {
         var newcell: [Sections.CellType] = []
         for product in articles {
@@ -218,6 +212,12 @@ class ViewController: UIViewController {
         let headerSection: ProductCellType.Sections = ProductCellType.Sections(type: .header, cell: headerSectionCell)
         return headerSection
     }
+    
+    func setup(){
+        countProductFooter.text = String(FavoriteManager.shared.countFavorite())
+    }
+    
+
 }
 
 
@@ -238,6 +238,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             switch cellType {
             case .header:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderCell.identifier, for: indexPath) as! HeaderCell
+                
                 cell.onTapSortButton = { [weak self] in
                     guard let self = self else {return}
                     self.isDescSort.toggle()
@@ -307,6 +308,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return CGSize(width: arcticleWidth, height: 229)
         }
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        let cellType = sections[indexPath.section].cell[indexPath.item]
+//
+//            switch cellType {
+//
+//    }
+    
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
@@ -345,7 +354,7 @@ extension ViewController:  UIScrollViewDelegate {
         if position > (collectionView.contentSize.height - 100 - scrollView.frame.size.height) {
             isPagination = true
             generateProductCell(page: page)
-            page += 1
+            
 
         }
     }

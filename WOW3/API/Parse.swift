@@ -31,7 +31,7 @@ class FetchData {
                     }
                 } catch let error {
                     print(error)
-                    //                didFetchProductFail(error: error.localizedDescription)
+                    //                didFetchProductFail(error: error.localizedDescription)http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=5
                 }
             }
             

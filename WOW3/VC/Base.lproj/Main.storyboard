@@ -119,6 +119,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="wUz-lt-sQs" id="uUI-ul-PSu"/>
+                        <outlet property="countProductFooter" destination="InL-Xk-ey4" id="kgv-Pa-6g9"/>
                         <outlet property="footerButton" destination="xzE-2M-heW" id="7Wv-3i-mxu"/>
                     </connections>
                 </viewController>
@@ -129,7 +130,6 @@
         <!--Navigation Controller-->
         <scene sceneID="hTu-sm-Z2R">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bK4-Io-Gzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J80-3r-uq0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OqY-6z-3yS">
@@ -141,6 +141,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="zWL-J6-TnW"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bK4-Io-Gzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="75.669642857142847"/>
         </scene>

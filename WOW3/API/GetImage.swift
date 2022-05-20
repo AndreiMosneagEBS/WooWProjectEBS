@@ -49,34 +49,4 @@ class ApiService {
     
 
 }
-//extension ApiService {
-//    
-//    func fetchProducts(pagination: Pagination, onResponse: ((_ response: ProductResponse?) -> Void)? = nil) {
-//        guard let url = URL(string: "http://mobile-shop-api.hiring.devebs.net/products?page=\(pagination.currentPage)&page_size=\(pagination.perPage)") else {
-//            return
-//        }
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "GET"
-//        
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data else {
-//                return
-//            }
-//            
-//            do {
-//                let response = try JSONDecoder().decode(ProductResponse.self, from: data)
-//                DispatchQueue.main.async {
-//                    onResponse?(response)
-//                }
-//            } catch let error {
-//                print(error)
-////                didFetchProductFail(error: error.localizedDescription)
-//                DispatchQueue.main.async {
-//                    onResponse?(nil)
-//                }
-//            }
-//        }.resume()
-//    }
-//    
-//}
 

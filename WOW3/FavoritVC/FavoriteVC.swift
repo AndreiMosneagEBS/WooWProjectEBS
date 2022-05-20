@@ -84,7 +84,7 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             
             cell.onTapFavoriteButton =  { [weak self] typeButton in
                 switch typeButton {
-                case .addToCart(id: let id):
+                case .addToCart(id: _):
                     break
                 case .addToFavorite(model: let model):
                     if FavoriteManager.shared.checkFavorite(id: model.id) {

@@ -62,7 +62,11 @@ class ProductCell: UICollectionViewCell {
         price.text = "\(model.price)"
         getImage(url: model.category.icon ?? "")
         
-        let icon = FavoriteManager.shared.checkFavorite(id: model.id) ? "fillHeart" : "heart"
+        let isFavorite = FavoriteManager.shared.checkFavorite(id: model.id)
+        print("Item \(model.id) isFavorite \(isFavorite)")
+        let icon = isFavorite ? "IconHeartFull" : "Heart"
+        
+        
         let image = UIImage(named: icon)
         let imageHeart = UIImageView(frame: CGRect(x: 2, y: 2, width: 2, height: 2))
         imageHeart.image = image
@@ -79,7 +83,10 @@ class ProductCell: UICollectionViewCell {
     
     private func getImage(url: String) {
         ApiService.getImage(withURl: url ) { [weak self] image in
-            self?.productImage.image = image
+//            if url == model?.category.icon {
+                self?.productImage.image = image
+//            }
+            
         }
     }
     

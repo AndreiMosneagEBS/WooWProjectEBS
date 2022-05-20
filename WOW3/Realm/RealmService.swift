@@ -51,9 +51,7 @@ struct FavoriteManager {
     }
     
     func getAllFavorites() -> [Favorite] {
-//        print(try! queryObjects(with: Favorite.self).map({ $0 }))
         let favorites: [Favorite] = realm.objects(Favorite.self).compactMap({$0})
-//        print(favorites)
         return favorites
     }
     

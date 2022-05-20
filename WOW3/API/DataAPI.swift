@@ -15,9 +15,6 @@ struct Welcome: Codable {
     var currentPage: Int?
     var results: [Result]?
     
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: Welcome.self)
-//    }
 }
 
 

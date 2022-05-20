@@ -26,7 +26,6 @@ struct ProductResponse: Decodable {
     
 }
 
-
 struct Products: Decodable {
     var category: Category
     var name: String
@@ -56,8 +55,7 @@ struct Products: Decodable {
         self.price = try container.decode(Int.self, forKey: .price)
         self.id = try container.decode(Int.self, forKey: .id)
     }
-    
-}
+    }
 
 extension Products: Equatable, Comparable {
     static func < (lhs: Products, rhs: Products) -> Bool {

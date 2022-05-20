@@ -16,9 +16,6 @@ class ProductViewController: UIViewController, UICollectionViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-//        generateAllSection()
-//        generateProductCell()
-//        generateProductSection()
         generateProductSection()
     }
     
@@ -35,8 +32,7 @@ class ProductViewController: UIViewController, UICollectionViewDelegate{
         
     }
     
-    
-    private func generateProductSection() {
+        private func generateProductSection() {
         var newCell: [ProductsInfoCellType] = []
         newCell.append(.image)
         newCell.append(.name)
@@ -44,22 +40,6 @@ class ProductViewController: UIViewController, UICollectionViewDelegate{
         self.cells = newCell
         tableView.reloadData()
     }
-    
-//   private func generateProductCell() {
-//        FetchData.shared.fetchProducts { [weak self] response in
-//            guard let response = response else {return}
-//            self?.products.append(contentsOf: response.results)
-//            self?.generateAllSection()
-//        }
-//    }
-    
-//    private func generateAllSection () {
-//        let productSection = generateProductSection(products)
-//        var newSection: [ProductCellType.Sections] = []
-//        newSection.append(productSection)
-//        sections = newSection
-//        self.tableView.reloadData()
-//    }
 }
 
 extension ProductViewController: UITableViewDelegate{
