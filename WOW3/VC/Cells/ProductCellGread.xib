@@ -26,37 +26,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="290" height="292"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gce-QE-kzn">
-                                <rect key="frame" x="5" y="23" width="280" height="83"/>
+                                <rect key="frame" x="10" y="23" width="275" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="83" id="Sys-kT-Ump"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5b8-Lh-2Bg">
-                                <rect key="frame" x="5" y="116" width="280" height="19"/>
+                                <rect key="frame" x="10" y="116" width="275" height="19"/>
                                 <fontDescription key="fontDescription" name="OpenSansRoman-Bold" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.027450980390000001" green="0.098039215690000001" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhj-xF-mzs">
-                                <rect key="frame" x="5" y="145" width="280" height="13"/>
+                                <rect key="frame" x="10" y="145" width="275" height="13"/>
                                 <fontDescription key="fontDescription" name="OpenSansRoman-Bold" family="Open Sans" pointSize="11"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KT0-dN-wWk">
-                                <rect key="frame" x="5" y="168" width="39.5" height="19"/>
+                                <rect key="frame" x="10" y="168" width="39.5" height="19"/>
                                 <fontDescription key="fontDescription" name="OpenSansRoman-Bold" family="Open Sans" pointSize="16"/>
                                 <color key="textColor" red="0.01176470588" green="0.35294117650000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-eo-46v">
-                                <rect key="frame" x="54.5" y="168" width="37.5" height="18"/>
+                                <rect key="frame" x="59.5" y="168" width="37.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aXJ-vr-fOU">
-                                <rect key="frame" x="5" y="197" width="63" height="21"/>
+                                <rect key="frame" x="10" y="197" width="63" height="21"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bF1-Hr-dhC">
                                         <rect key="frame" x="0.0" y="0.0" width="24" height="21"/>
@@ -89,13 +89,13 @@
                             <constraint firstItem="bhj-xF-mzs" firstAttribute="top" secondItem="5b8-Lh-2Bg" secondAttribute="bottom" constant="10" id="Gjb-5f-fie"/>
                             <constraint firstItem="gce-QE-kzn" firstAttribute="top" secondItem="rGe-kD-Pli" secondAttribute="top" constant="23" id="O4f-9N-ohU"/>
                             <constraint firstItem="KT0-dN-wWk" firstAttribute="top" secondItem="bhj-xF-mzs" secondAttribute="bottom" constant="10" id="Pos-9R-VbZ"/>
-                            <constraint firstItem="bhj-xF-mzs" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="5" id="Wdf-bL-rYH"/>
-                            <constraint firstItem="KT0-dN-wWk" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="5" id="Yw9-cj-bky"/>
+                            <constraint firstItem="bhj-xF-mzs" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="10" id="Wdf-bL-rYH"/>
+                            <constraint firstItem="KT0-dN-wWk" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="10" id="Yw9-cj-bky"/>
                             <constraint firstAttribute="trailing" secondItem="gce-QE-kzn" secondAttribute="trailing" constant="5" id="cHo-FU-y2f"/>
-                            <constraint firstItem="5b8-Lh-2Bg" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="5" id="cQq-uK-5hZ"/>
-                            <constraint firstItem="aXJ-vr-fOU" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="5" id="cb0-xh-Du6"/>
+                            <constraint firstItem="5b8-Lh-2Bg" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="10" id="cQq-uK-5hZ"/>
+                            <constraint firstItem="aXJ-vr-fOU" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="10" id="cb0-xh-Du6"/>
                             <constraint firstItem="Dof-eo-46v" firstAttribute="leading" secondItem="KT0-dN-wWk" secondAttribute="trailing" constant="10" id="iId-ja-1X6"/>
-                            <constraint firstItem="gce-QE-kzn" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="5" id="off-2Y-rp5"/>
+                            <constraint firstItem="gce-QE-kzn" firstAttribute="leading" secondItem="rGe-kD-Pli" secondAttribute="leading" constant="10" id="off-2Y-rp5"/>
                             <constraint firstItem="aXJ-vr-fOU" firstAttribute="top" secondItem="KT0-dN-wWk" secondAttribute="bottom" constant="10" id="tTh-dF-0f3"/>
                             <constraint firstAttribute="trailing" secondItem="bhj-xF-mzs" secondAttribute="trailing" constant="5" id="uTU-WF-uvb"/>
                             <constraint firstItem="Dof-eo-46v" firstAttribute="top" secondItem="bhj-xF-mzs" secondAttribute="bottom" constant="10" id="zKC-ZH-eeK"/>

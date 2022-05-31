@@ -68,8 +68,6 @@ class ProductCell: UICollectionViewCell {
         
         
         let image = UIImage(named: icon)
-        let imageHeart = UIImageView(frame: CGRect(x: 2, y: 2, width: 2, height: 2))
-        imageHeart.image = image
         favoritesButton.setImage(image, for: .normal)
     }
     

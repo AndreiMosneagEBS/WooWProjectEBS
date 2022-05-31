@@ -16,7 +16,7 @@ struct ProductCellType {
     enum CellType {
         case header
         case product(model: Products)
-//        case loading
+        case loading
     
     }
     

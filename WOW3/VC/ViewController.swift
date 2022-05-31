@@ -288,6 +288,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                     }
                     return cell
                 }
+            case .loading:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoandingCell", for: indexPath)
+                return cell
             }
     }
     
@@ -306,6 +309,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 arcticleWidth = (width / 2) - 10
             }
             return CGSize(width: arcticleWidth, height: 229)
+        case .loading:
+            return CGSize(width: width, height: 60)
         }
     }
     
