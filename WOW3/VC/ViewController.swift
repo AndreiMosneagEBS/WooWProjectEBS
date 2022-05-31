@@ -224,7 +224,8 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections[section].cell.count
+//        return (self.products.count > 0) ? (self.products.count) : 0
+        return (products.count > 0) ? (sections[section].cell.count + 1) : 0
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

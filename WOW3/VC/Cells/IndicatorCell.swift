@@ -27,7 +27,8 @@ class IndicatorCell: UICollectionViewCell {
     
     func setup() {
         contentView.addSubview(inidicator)
-//        inidicator.center
+        inidicator.center = .init(x: contentView.frame.height / 2,
+                                  y: contentView.frame.width / 2)
         inidicator.startAnimating()
         
     }
