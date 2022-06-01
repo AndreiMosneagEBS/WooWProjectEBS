@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wUz-lt-sQs">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="736"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hul-t2-PCJ">
                                     <size key="itemSize" width="128" height="128"/>
@@ -89,7 +89,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Cp-vB-U80" secondAttribute="trailing" constant="15" id="2X8-BV-e6j"/>
                             <constraint firstItem="wUz-lt-sQs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EOl-rh-Xg8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wUz-lt-sQs" secondAttribute="bottom" id="XjH-vO-esZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wUz-lt-sQs" secondAttribute="bottom" constant="38" id="XjH-vO-esZ"/>
                             <constraint firstItem="wUz-lt-sQs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eMQ-Wh-WVg"/>
                             <constraint firstAttribute="bottom" secondItem="2Cp-vB-U80" secondAttribute="bottom" constant="30" id="ta3-Fl-2IY"/>
                             <constraint firstItem="2Cp-vB-U80" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="vbf-Ch-JgI"/>

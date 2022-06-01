@@ -25,10 +25,22 @@ class IndicatorCell: UICollectionViewCell {
         setup()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.addSubview(inidicator)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        inidicator.center = .init(x: self.frame.width / 2,
+                                  y: self.frame.height / 2)
+    }
+    
     func setup() {
-        contentView.addSubview(inidicator)
-        inidicator.center = .init(x: contentView.frame.height / 2,
-                                  y: contentView.frame.width / 2)
+       
+        
         inidicator.startAnimating()
         
     }

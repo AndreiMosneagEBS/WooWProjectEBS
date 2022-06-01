@@ -47,7 +47,7 @@ extension ProductViewController: UITableViewDelegate{
         switch cells[indexPath.row] {
         case .image:
             let imageCell = tableView.dequeueReusableCell(withIdentifier: ProductImageCell.identifier, for: indexPath) as! ProductImageCell
-            imageCell.getImage(url: model?.category.icon ?? "")
+            imageCell.getImage(url: model?.main_image ?? "")
             return imageCell
         case .name:
             let nameCell = tableView.dequeueReusableCell(withIdentifier: ProductInfoCell.identifier, for: indexPath) as! ProductInfoCell

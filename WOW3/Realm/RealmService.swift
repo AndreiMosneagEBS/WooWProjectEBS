@@ -18,7 +18,7 @@ struct FavoriteManager {
     
     func saveToFavorite(product: Products) {
         if checkFavorite(id: product.id) {
-            try? delete(id: product.id)
+            delete(id: product.id)
         } else {
             try? add(model: product)
         }
@@ -31,19 +31,24 @@ struct FavoriteManager {
     
     func add(model: Products) throws {
         try realm.write {
-            let favorite: Favorite = Favorite(id: model.id, label: model.name , descriptionLabel: model.details, price: model.price, image: model.category.icon ?? "")
+            let favorite: Favorite = Favorite(id: model.id, label: model.name , descriptionLabel: model.details, price: model.price, image: model.main_image )
 //            realm.add(favorite)
             realm.add(favorite, update: .modified)
 //            print(model.name)
         }
     }
     
-    func delete(id: Int) throws {
-        try realm.write {
-            if let object = getFavorite(id: id) {
-                realm.delete(object)
+    func delete(id: Int) {
+        do {
+            try realm.write {
+                if let object = getFavorite(id: id) {
+                    realm.delete(object)
+                }
             }
+        } catch {
+            print(error.localizedDescription)
         }
+        
     }
     
     func getFavorite(id: Int) -> Favorite? {

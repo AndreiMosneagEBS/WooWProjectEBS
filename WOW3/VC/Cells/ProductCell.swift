@@ -20,9 +20,10 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet private weak var salePrice: UILabel!
     @IBOutlet weak var favoritesButton: UIButton!
     
-    var onTapFavoriteButton: ((_ button: ProductCell.ButtonType) -> Void)?
+    var onTapFavoriteButton: ((_ model: Products) -> Void)?
     
     private var model: Products?
+    private var favariteModel: Favorite?
     weak var delegate: ProductCellDelegate?
     
     enum ButtonType {
@@ -43,7 +44,7 @@ class ProductCell: UICollectionViewCell {
         guard let model = model else {
             return
         }
-        self.onTapFavoriteButton?(.addToFavorite(model: model))
+        self.onTapFavoriteButton?(model)
     }
     
     struct Params {
@@ -60,13 +61,11 @@ class ProductCell: UICollectionViewCell {
         nameLabel.text = model.name
         descriptionLabel.text = model.details
         price.text = "\(model.price)"
-        getImage(url: model.category.icon ?? "")
+        getImage(url: model.main_image)
         
         let isFavorite = FavoriteManager.shared.checkFavorite(id: model.id)
-        print("Item \(model.id) isFavorite \(isFavorite)")
-        let icon = isFavorite ? "IconHeartFull" : "Heart"
-        
-        
+//        print("Item \(model.id) isFavorite \(isFavorite)")
+        let icon = isFavorite ? "Active" : "NormalH"
         let image = UIImage(named: icon)
         favoritesButton.setImage(image, for: .normal)
     }
@@ -76,6 +75,7 @@ class ProductCell: UICollectionViewCell {
         descriptionLabel.text = model.descriptionLable
         price.text = "\(model.price)"
         getImage(url: model.image)
+        
         
     }
     

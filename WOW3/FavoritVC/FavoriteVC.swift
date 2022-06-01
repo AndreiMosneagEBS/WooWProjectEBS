@@ -82,16 +82,9 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
             cell.favorites(model: model)
             
-            cell.onTapFavoriteButton =  { [weak self] typeButton in
-                switch typeButton {
-                case .addToCart(id: _):
-                    break
-                case .addToFavorite(model: let model):
-                    if FavoriteManager.shared.checkFavorite(id: model.id) {
-                        try! FavoriteManager.shared.delete(id: model.id)
-                    }
-                    self?.generateAllSectionsFavorites()
-                }
+            cell.onTapFavoriteButton =  { [weak self] model in
+                FavoriteManager.shared.delete(id: model.id)
+                self?.generateAllSectionsFavorites()
             }
             return cell
         

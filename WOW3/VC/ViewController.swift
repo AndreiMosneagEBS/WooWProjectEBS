@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     private var cells: [ProductCellType.CellType] = []
     private var porductsDisplayType: HeaderCell.ButtonType = .list
     private var headerTypeCell: HeaderCell.HeaderType = .productFeed
-    private var page: Int = 1
+//    private var page: Int = 1
     private var isLoading: Bool = false
     private var pagination: Pagination = Pagination()
     private var isFavorite: Bool = false
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         setupNavigationBarItem()
         setupFotterButton()
         configureRefreshControl()
-        loadProducts()
+        loadProducts(refresh: true)
     }
     
     private func setupNavigationBarItem() {
@@ -67,15 +67,24 @@ class ViewController: UIViewController {
         collectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: ProductCell.identifier)
         collectionView.register(UINib(nibName: "ProductCellGread", bundle: nil), forCellWithReuseIdentifier: "ProductCellGread")
         collectionView.register(UINib(nibName: "FavoritesHeaderCell", bundle: nil), forCellWithReuseIdentifier:"FavoritesHeaderCell")
+        collectionView.register(UINib(nibName: "IndicatorCell", bundle: nil), forCellWithReuseIdentifier:"LoandingCell")
+        
+        
     }
     
     private func generateProductsSection(_ article:[Products] ) -> ProductCellType.Sections {
-        var newCell: [ProductCellType.CellType] = []
+        var newCells: [ProductCellType.CellType] = []
         
         for product in article {
-            newCell.append(.product(model: product))
+            newCells.append(.product(model: product))
         }
-        let prodCell: ProductCellType.Sections = .init(type: .product, cell: newCell)
+        
+        if !pagination.isLastPage {
+            newCells.append(.loading)
+        
+        }
+        let prodCell: ProductCellType.Sections = .init(type: .product, cell: newCells)
+        
         return prodCell
     }
     
@@ -124,21 +133,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    func generateProductCell(page: Int) {
-
-        self.isPagination = true
-        FetchData.shared.fetchProducts(pagination:pagination , page: page) { [weak self] response in
-            guard let response = response else {return}
-            self?.products.append(contentsOf: response.results)
-            
-            self?.page += 1
-            self?.isPagination = false
-            
-            self?.generateAllSections()
-        }
-        
-    }
-    
     private func configureRefreshControl() {
         let refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(didPullToRefresh), for: .valueChanged)
@@ -147,33 +141,46 @@ class ViewController: UIViewController {
     }
     
     @objc private func didPullToRefresh() {
-        loadProducts()
+        loadProducts(refresh: true)
     }
     
-    private func loadProducts() {
-
-        
+    private func loadProducts(refresh: Bool) {
+        if isLoading {
+            return
+        }
+        if refresh{
+            pagination = Pagination()
+            isLoading = true
+        }
         isLoading = true
         
-        FetchData.shared.fetchProducts(pagination: pagination, page: page) { [weak self] response in
+        FetchData.shared.fetchProducts(pagination: pagination) { [weak self] response in
             guard let self = self, let response = response else {
                 self?.isLoading = false
                 return
             }
             
-            if response.pagination?.currentPage == 2 {
+            if response.pagination.currentPage == 1 {
                 self.products = response.results
             } else {
                 self.products.append(contentsOf: response.results)
             }
             
-            if self.pagination.currentPage >= response.pagination?.totalPages ?? 3 {
+            if self.pagination.currentPage >= response.pagination.totalPages {
                 self.pagination.isLastPage = true
             } else {
                 self.pagination.currentPage += 1
             }
-                self.collectionView.refreshControl?.endRefreshing()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7, execute: {
+                
+                if self.collectionView.refreshControl?.isRefreshing == true {
+                    self.collectionView.refreshControl?.endRefreshing()
+                }
                 self.generateAllSections()
+                self.isLoading = false
+            })
+                
         }
     }
     
@@ -216,8 +223,6 @@ class ViewController: UIViewController {
     func setup(){
         countProductFooter.text = String(FavoriteManager.shared.countFavorite())
     }
-    
-
 }
 
 
@@ -225,12 +230,24 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return (self.products.count > 0) ? (self.products.count) : 0
-        return (products.count > 0) ? (sections[section].cell.count + 1) : 0
+        return sections[section].cell.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
     }
+    
+        func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+            if pagination.isLastPage {
+                return
+            }
+            
+            let lastItem = self.products.count - 1
+            if indexPath.row == lastItem {
+                loadProducts(refresh: false)
+                
+            }
+        }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -264,33 +281,24 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 case .grid:
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCellGread", for: indexPath) as! ProductCell
                     cell.setup(model: product)
-                    cell.onTapFavoriteButton = { [weak self] buttonType in
-                        switch buttonType {
-                        case .addToCart(_):
-                            self?.generateAllSections()
-                        case .addToFavorite(let products):
-                            FavoriteManager.shared.saveToFavorite(product: products)
-                            self?.generateAllSections()
-                        }
+                    cell.onTapFavoriteButton = { [weak self] model in
+                        FavoriteManager.shared.saveToFavorite(product: model)
+                        self?.generateAllSections()
                     }
                     return cell
                 case .list:
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.identifier, for: indexPath) as! ProductCell
                     cell.setup(model: product)
-                    cell.onTapFavoriteButton = { [weak self] buttonType in
-                        switch buttonType {
-                        case .addToCart(_):
-                            self?.generateAllSections()
-                        case .addToFavorite(let products):
-                            FavoriteManager.shared.saveToFavorite(product: products)
-                            self?.generateAllSections()
-                        }
+                    cell.onTapFavoriteButton = { [weak self] model in
+                        FavoriteManager.shared.saveToFavorite(product: model)
+                        self?.generateAllSections()
                         
                     }
                     return cell
                 }
             case .loading:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoandingCell", for: indexPath)
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoandingCell", for: indexPath) as! IndicatorCell
+                    cell.setup()
                 return cell
             }
     }
@@ -314,13 +322,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return CGSize(width: width, height: 60)
         }
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        let cellType = sections[indexPath.section].cell[indexPath.item]
-//
-//            switch cellType {
-//
-//    }
     
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -351,17 +352,3 @@ extension ViewController: HeaderCellDelegate {
     }
 }
     
-extension ViewController:  UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard !isPagination else {
-            return
-        }
-        let position = scrollView.contentOffset.y
-        if position > (collectionView.contentSize.height - 100 - scrollView.frame.size.height) {
-            isPagination = true
-            generateProductCell(page: page)
-            
-
-        }
-    }
-}

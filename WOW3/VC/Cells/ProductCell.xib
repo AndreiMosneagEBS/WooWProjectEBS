@@ -76,7 +76,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6hR-jb-whl">
                                 <rect key="frame" x="0.0" y="95.5" width="71" height="28"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56F-2d-1mi">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56F-2d-1mi">
                                         <rect key="frame" x="0.0" y="0.0" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="28" id="qLv-Vf-MHe"/>
@@ -84,7 +84,7 @@
                                         </constraints>
                                         <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="Heart" title=""/>
+                                        <buttonConfiguration key="configuration" style="plain" image="NormalH" title=""/>
                                         <connections>
                                             <action selector="favoritesActionButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ys4-7x-1QE"/>
                                         </connections>
@@ -136,7 +136,7 @@
     </objects>
     <resources>
         <image name="Cart Empty" width="22" height="22"/>
-        <image name="Heart" width="26" height="24"/>
+        <image name="NormalH" width="36" height="36"/>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

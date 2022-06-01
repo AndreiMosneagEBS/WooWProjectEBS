@@ -11,8 +11,8 @@ class FetchData {
 
     static let shared = FetchData()
     
-    func fetchProducts(pagination: Pagination, page: Int, onRespons: ((_ response: ProductResponse?) -> ())? = nil ) {
-        guard let url = URL(string: "http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=5") else {
+    func fetchProducts(pagination: Pagination, onRespons: ((_ response: ProductResponse?) -> ())? = nil ) {
+        guard let url = URL(string: "http://mobile-shop-api.hiring.devebs.net/products?page=\(pagination.currentPage)&page_size=\(pagination.perPage)") else {
             return
         }
         var request = URLRequest(url: url)
