@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E427DB52833A77600BD02DA /* FavoritesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E427DB42833A77600BD02DA /* FavoritesSection.swift */; };
-		8E427DBA28366BC300BD02DA /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E427DB928366BC300BD02DA /* Product.storyboard */; };
+		8E5AF9BA2848ECC9008320B3 /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E5AF9B92848ECC9008320B3 /* Product.storyboard */; };
 		8EDC2437282281DF007B0CF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC2436282281DF007B0CF1 /* AppDelegate.swift */; };
 		8EDC2439282281DF007B0CF1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC2438282281DF007B0CF1 /* SceneDelegate.swift */; };
 		8EDC2440282281E0007B0CF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EDC243F282281E0007B0CF1 /* Assets.xcassets */; };
@@ -54,7 +54,7 @@
 		19D6A36B7D6002D519C50C38 /* Pods-WOW3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WOW3.release.xcconfig"; path = "Target Support Files/Pods-WOW3/Pods-WOW3.release.xcconfig"; sourceTree = "<group>"; };
 		4B070A9A805DDC09CE101350 /* Pods_WOW3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WOW3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E427DB42833A77600BD02DA /* FavoritesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSection.swift; sourceTree = "<group>"; };
-		8E427DB928366BC300BD02DA /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Product.storyboard; path = ../../../WooWV2/WooWV2/PVC/Product.storyboard; sourceTree = "<group>"; };
+		8E5AF9B92848ECC9008320B3 /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Product.storyboard; path = ../../../Documents/WooWV2/WooWV2/PVC/Product.storyboard; sourceTree = "<group>"; };
 		8EDC2433282281DF007B0CF1 /* WOW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WOW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDC2436282281DF007B0CF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EDC2438282281DF007B0CF1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				8EDC24862822826D007B0CF1 /* ProductViewController.swift */,
-				8E427DB928366BC300BD02DA /* Product.storyboard */,
+				8E5AF9B92848ECC9008320B3 /* Product.storyboard */,
 				8EDC247C2822826D007B0CF1 /* Product Cell */,
 			);
 			path = PVC;
@@ -326,8 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EDC24A82822826D007B0CF1 /* ProductInfoCell.xib in Resources */,
+				8E5AF9BA2848ECC9008320B3 /* Product.storyboard in Resources */,
 				8EDC24B42822826D007B0CF1 /* FavoritesHeaderCell.xib in Resources */,
-				8E427DBA28366BC300BD02DA /* Product.storyboard in Resources */,
 				8EDC2440282281E0007B0CF1 /* Assets.xcassets in Resources */,
 				8EDC24BA2822826D007B0CF1 /* LaunchScreen.storyboard in Resources */,
 				8EDC24B22822826D007B0CF1 /* ProductCellGread.xib in Resources */,
