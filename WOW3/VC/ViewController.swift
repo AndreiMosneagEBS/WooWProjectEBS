@@ -6,7 +6,7 @@
 //
 import UIKit
 import RealmSwift
-
+//
 class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
