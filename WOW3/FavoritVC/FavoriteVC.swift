@@ -7,13 +7,15 @@
 
 import UIKit
 import RealmSwift
-
 class FavoriteVC: UIViewController {
     
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
-    
+    var realm: Realm {
+        try! Realm()
+    }
     private var products: [Products] = []
     private var sectionsFavorites: [FavoriteSections.Section] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class FavoriteVC: UIViewController {
         favoritesCollectionView.register(UINib(nibName: "ProductCell", bundle: nil), forCellWithReuseIdentifier: "ProductCell")
         
     }
-    
+        
     private func generateFavoriteProducts(articles: [Products]) -> FavoriteSections.Section {
         var newcell: [FavoriteSections.CellType] = articles.map { favorites in
             return FavoriteSections.CellType.favorites(model: favorites)
@@ -84,7 +86,7 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             cell.setup(model: model)
             
             cell.onTapFavoriteButton =  { [weak self] model in
-                FavoriteManager.shared.delete(id: model.id)
+                FavoriteManager.shared.saveToFavorite(product: model)
                 self?.generateAllSectionsFavorites()
             }
             return cell
@@ -103,6 +105,25 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         
         }
     }
+//    func notificationChange() {
+//        let productCart = realm.objects(Products.self)
+//        
+//        productNotificationToken = productCart.observe { change in
+//            switch change {
+//            case .initial(_):
+//    
+//            case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+//                <#code#>
+//            case .error(_):
+//                <#code#>
+//            }
+//        }
+//        
+//    }
+//    
+    
+    
+    
 }
 
 extension FavoriteVC: ProductCellDelegate {

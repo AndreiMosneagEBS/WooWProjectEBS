@@ -19,6 +19,7 @@ struct FavoriteManager {
     func saveToFavorite(product: Products) {
         if checkFavorite(id: product.id) {
             delete(id: product.id)
+            
         } else {
             try? add(model: product)
         }

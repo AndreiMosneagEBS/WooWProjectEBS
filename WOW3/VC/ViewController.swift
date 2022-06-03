@@ -18,17 +18,16 @@ class ViewController: UIViewController {
     private var cells: [ProductCellType.CellType] = []
     private var porductsDisplayType: HeaderCell.ButtonType = .list
     private var headerTypeCell: HeaderCell.HeaderType = .productFeed
-//    private var page: Int = 1
     private var isLoading: Bool = false
     private var pagination: Pagination = Pagination()
     private var isFavorite: Bool = false
-    let refreshControl = UIRefreshControl()
     private var products: [Products] = []
     private var sectionsFavorites: [ProductCellType.Sections] = []
-
+    private var productNotificationToken: NotificationToken?
     private var isPagination = false
     private var model: ProductResponse?
     private var isHiden: Bool = true
+    let refreshControl = UIRefreshControl()
     let realm = try! Realm()
     
     
@@ -41,6 +40,10 @@ class ViewController: UIViewController {
         loadProducts(refresh: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
     
 //    MARK: - CONFIGURATION
     
@@ -203,6 +206,7 @@ class ViewController: UIViewController {
             }
             vc.setup(model: model)
             navigationController?.pushViewController(vc, animated: true)
+            self.collectionView.reloadData()
         }
         
     }
@@ -227,6 +231,12 @@ class ViewController: UIViewController {
     func setup(){
         countProductFooter.text = String(FavoriteManager.shared.countFavorite())
     }
+    
+//    func notificationModification() {
+//        let tokin = realm.observe (Products.self)
+//        productNotificationToken = tokin.
+//    }
+    
 }
 
 
@@ -296,6 +306,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                     cell.onTapFavoriteButton = { [weak self] model in
                         FavoriteManager.shared.saveToFavorite(product: model)
                         self?.generateAllSections()
+
                         
                     }
                     return cell

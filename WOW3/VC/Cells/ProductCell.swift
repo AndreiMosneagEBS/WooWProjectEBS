@@ -21,6 +21,7 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var favoritesButton: UIButton!
     
     var onTapFavoriteButton: ((_ model: Products) -> Void)?
+    var onFavorite: ((_ isFavorite: Bool) -> Void)?
     
     private var model: Products?
     private var favariteModel: Favorite?
@@ -45,6 +46,7 @@ class ProductCell: UICollectionViewCell {
             return
         }
         self.onTapFavoriteButton?(model)
+        
     }
     
     struct Params {
@@ -66,20 +68,10 @@ class ProductCell: UICollectionViewCell {
         getImage(url: model.main_image)
         
         let isFavorite = FavoriteManager.shared.checkFavorite(id: model.id)
-//        print("Item \(model.id) isFavorite \(isFavorite)")
         let icon = isFavorite ? "Active" : "NormalH"
         let image = UIImage(named: icon)
         favoritesButton.setImage(image, for: .normal)
     }
-    
-//    func favorites(model: Products) {
-//        nameLabel.text = model.name
-//        descriptionLabel.text = model.details
-//        price.text = "\(model.price)"
-//        getImage(url: model.main_image)
-//
-//
-//    }
     
     private func getImage(url: String) {
         ApiService.getImage(withURl: url ) { [weak self] image in
