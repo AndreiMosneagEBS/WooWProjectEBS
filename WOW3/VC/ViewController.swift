@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     private var isHiden: Bool = true
     let realm = try! Realm()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollection()
@@ -39,6 +40,9 @@ class ViewController: UIViewController {
         configureRefreshControl()
         loadProducts(refresh: true)
     }
+    
+    
+//    MARK: - CONFIGURATION
     
     private func setupNavigationBarItem() {
         if #available(iOS 15, *) {

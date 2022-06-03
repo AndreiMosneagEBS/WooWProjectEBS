@@ -65,7 +65,7 @@
                                             <constraint firstAttribute="height" constant="21" id="yWy-BQ-ACa"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="Heart"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="NormalH"/>
                                         <connections>
                                             <action selector="favoritesActionButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="mTm-eL-eTH"/>
                                         </connections>
@@ -124,7 +124,7 @@
     </objects>
     <resources>
         <image name="Cart Empty" width="22" height="22"/>
-        <image name="Heart" width="36" height="36"/>
+        <image name="NormalH" width="36" height="36"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

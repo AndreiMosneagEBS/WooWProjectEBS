@@ -39,8 +39,6 @@ class IndicatorCell: UICollectionViewCell {
     }
     
     func setup() {
-       
-        
         inidicator.startAnimating()
         
     }

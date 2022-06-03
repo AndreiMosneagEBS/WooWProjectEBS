@@ -28,6 +28,15 @@ struct ProductResponse: Decodable {
 
 class Products: Object, Codable {
     
+    convenience init(id: Int, name: String, details: String, price: Int, main_image: String) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.details = details
+        self.price = price
+        self.main_image = main_image
+    }
+    
     @Persisted(primaryKey: true)
     @objc dynamic var id: Int
     @Persisted var name: String = ""

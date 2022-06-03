@@ -15,7 +15,7 @@ struct FavoriteSections  {
     }
     enum CellType {
         case header
-        case favorites (model: Favorite)
+        case favorites (model: Products)
     }
     struct Section {
         var type: SectionType

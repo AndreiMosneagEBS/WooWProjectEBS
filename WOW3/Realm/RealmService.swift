@@ -29,11 +29,14 @@ struct FavoriteManager {
         return object != nil
     }
     
-    func add(model: Products) throws {
-        try realm.write {
-            let favorite: Favorite = Favorite(id: model.id, label: model.name , descriptionLabel: model.details, price: model.price, image: model.main_image )
-//            realm.add(favorite)
-            realm.add(favorite, update: .modified)
+    func add(model: Products) {
+        try? realm.write {
+            realm.create(Products.self, value: model, update: .all)
+            
+            
+            
+//            add(product, update: .modified)
+//            realm.add(product)
 //            print(model.name)
         }
     }
@@ -51,17 +54,17 @@ struct FavoriteManager {
         
     }
     
-    func getFavorite(id: Int) -> Favorite? {
-        return realm.objects(Favorite.self).filter("id == %@", id).first
+    func getFavorite(id: Int) -> Products? {
+        return realm.objects(Products.self).filter("id == %@", id).first
     }
     
-    func getAllFavorites() -> [Favorite] {
-        let favorites: [Favorite] = realm.objects(Favorite.self).compactMap({$0})
+    func getAllFavorites() -> [Products] {
+        let favorites: [Products] = realm.objects(Products.self).compactMap({$0})
         return favorites
     }
     
     func countFavorite() -> Int {
-        let count = realm.objects(Favorite.self).count
+        let count = realm.objects(Products.self).count
         return count
     }
     
@@ -87,12 +90,12 @@ struct CartManager {
         return realm.objects(CartProduct.self).filter("id == %@", id).first
     }
     
-    func add(id: Int) throws {
-        try realm.write {
-            let cart: CartProduct = CartProduct(id: id)
-            realm.add(cart)
-        }
-    }
+//    func add(id: Int) throws {
+//        try realm.write {
+//            let cart: CartProduct = CartProduct(id: id)
+//            realm.add(cart)
+//        }
+//    }
     
     func delete(id: Int) throws {
         try realm.write {
@@ -102,13 +105,13 @@ struct CartManager {
         }
     }
     
-    func saveToCart(id: Int) {
-        if checkCart(id: id) {
-            try? delete(id: id)
-        } else {
-            try? add(id: id)
-        }
-    }
+//    func saveToCart(id: Int) {
+//        if checkCart(id: id) {
+//            try? delete(id: id)
+//        } else {
+//            try? add(id: id)
+//        }
+//    }
     
     func countCart() -> Int {
         let count = realm.objects(CartProduct.self).count

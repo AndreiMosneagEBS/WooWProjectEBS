@@ -12,7 +12,7 @@ class FavoriteVC: UIViewController {
     
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
     
-    private var products: [Favorite] = []
+    private var products: [Products] = []
     private var sectionsFavorites: [FavoriteSections.Section] = []
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class FavoriteVC: UIViewController {
         
     }
     
-    private func generateFavoriteProducts(articles: [Favorite]) -> FavoriteSections.Section {
+    private func generateFavoriteProducts(articles: [Products]) -> FavoriteSections.Section {
         var newcell: [FavoriteSections.CellType] = articles.map { favorites in
             return FavoriteSections.CellType.favorites(model: favorites)
         }
@@ -46,6 +46,7 @@ class FavoriteVC: UIViewController {
     }
     
     func generateAllSectionsFavorites() {
+        self.products = FavoriteManager.shared.getAllFavorites()
         let hiderSection = generateHiderSection()
         let productCardSection = generateFavoriteProducts(articles: products)
         var newSection: [FavoriteSections.Section] = []
@@ -80,7 +81,7 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
             return cell
         case .favorites(let model):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
-            cell.favorites(model: model)
+            cell.setup(model: model)
             
             cell.onTapFavoriteButton =  { [weak self] model in
                 FavoriteManager.shared.delete(id: model.id)
@@ -107,11 +108,11 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
 extension FavoriteVC: ProductCellDelegate {
     func pressButton(_ vc: ProductCell, button: ProductCell.ButtonType) {
         switch button {
-        case .addToCart(let id):
-            CartManager.shared.saveToCart(id: id)
+        case .addToCart(_):
+//            CartManager.shared.saveToCart(id: id)
             generateAllSectionsFavorites()
-        case .addToFavorite(let id):
-            FavoriteManager.shared.saveToFavorite(product: id)
+        case .addToFavorite(let product):
+            FavoriteManager.shared.saveToFavorite(product: product)
             generateAllSectionsFavorites()
         }
     }

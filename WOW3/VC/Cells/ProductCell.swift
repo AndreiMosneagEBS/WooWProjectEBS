@@ -56,7 +56,9 @@ class ProductCell: UICollectionViewCell {
         var model: Products?
     }
     
+
     func setup(model: Products) {
+        
         self.model = model
         nameLabel.text = model.name
         descriptionLabel.text = model.details
@@ -70,14 +72,14 @@ class ProductCell: UICollectionViewCell {
         favoritesButton.setImage(image, for: .normal)
     }
     
-    func favorites(model: Favorite) {
-        nameLabel.text = model.label
-        descriptionLabel.text = model.descriptionLable
-        price.text = "\(model.price)"
-        getImage(url: model.image)
-        
-        
-    }
+//    func favorites(model: Products) {
+//        nameLabel.text = model.name
+//        descriptionLabel.text = model.details
+//        price.text = "\(model.price)"
+//        getImage(url: model.main_image)
+//
+//
+//    }
     
     private func getImage(url: String) {
         ApiService.getImage(withURl: url ) { [weak self] image in
