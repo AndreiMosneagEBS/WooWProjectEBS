@@ -75,9 +75,7 @@ class ProductCell: UICollectionViewCell {
     
     private func getImage(url: String) {
         ApiService.getImage(withURl: url ) { [weak self] image in
-//            if url == model?.category.icon {
                 self?.productImage.image = image
-//            }
             
         }
     }

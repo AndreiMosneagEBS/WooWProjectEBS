@@ -33,12 +33,6 @@ struct FavoriteManager {
     func add(model: Products) {
         try? realm.write {
             realm.create(Products.self, value: model, update: .all)
-            
-            
-            
-//            add(product, update: .modified)
-//            realm.add(product)
-//            print(model.name)
         }
     }
     

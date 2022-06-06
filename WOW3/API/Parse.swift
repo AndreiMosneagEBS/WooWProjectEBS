@@ -19,9 +19,6 @@ class FetchData {
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: url) { data, response, error in
-//            guard let data = data else {
-//                return
-//            }
             if let data = data {
                 do {
                     let response = try JSONDecoder().decode(ProductResponse.self, from: data)
@@ -31,7 +28,6 @@ class FetchData {
                     }
                 } catch let error {
                     print(error)
-                    //                didFetchProductFail(error: error.localizedDescription)http://mobile-shop-api.hiring.devebs.net/products?page=\(page)&page_size=5
                 }
             }
             

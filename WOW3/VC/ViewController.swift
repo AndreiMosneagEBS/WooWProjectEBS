@@ -231,12 +231,6 @@ class ViewController: UIViewController {
     func setup(){
         countProductFooter.text = String(FavoriteManager.shared.countFavorite())
     }
-    
-//    func notificationModification() {
-//        let tokin = realm.observe (Products.self)
-//        productNotificationToken = tokin.
-//    }
-    
 }
 
 
@@ -359,11 +353,3 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
 }
-extension ViewController: HeaderCellDelegate {
-    
-    internal func filterProducts(_ vc: HeaderCell) {
-        isDescSort.toggle()
-        generateAllSections()
-    }
-}
-    

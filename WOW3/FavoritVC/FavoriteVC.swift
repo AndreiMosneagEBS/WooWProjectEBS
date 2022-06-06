@@ -105,24 +105,6 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         
         }
     }
-//    func notificationChange() {
-//        let productCart = realm.objects(Products.self)
-//        
-//        productNotificationToken = productCart.observe { change in
-//            switch change {
-//            case .initial(_):
-//    
-//            case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
-//                <#code#>
-//            case .error(_):
-//                <#code#>
-//            }
-//        }
-//        
-//    }
-//    
-    
-    
     
 }
 
@@ -130,7 +112,6 @@ extension FavoriteVC: ProductCellDelegate {
     func pressButton(_ vc: ProductCell, button: ProductCell.ButtonType) {
         switch button {
         case .addToCart(_):
-//            CartManager.shared.saveToCart(id: id)
             generateAllSectionsFavorites()
         case .addToFavorite(let product):
             FavoriteManager.shared.saveToFavorite(product: product)

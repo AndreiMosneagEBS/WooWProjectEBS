@@ -6,16 +6,11 @@
 //
 
 import UIKit
-protocol HeaderCellDelegate: AnyObject {
-    func filterProducts(_ vc: HeaderCell)
-}
-
 
 class HeaderCell: UICollectionViewCell {
     @IBOutlet weak var filtersButton: UIButton!
     @IBOutlet weak var listButton: UIButton!
     
-//    var delegate: HeaderCellDelegate?
     var onTapSortButton: (()-> Void)?
     var onTapGridView: ((_ type: ButtonType)-> Void)?
     var onTapListView: ((_ type: ButtonType)-> Void)?
@@ -56,7 +51,6 @@ class HeaderCell: UICollectionViewCell {
     }
     
     @IBAction private func filter(_ sender: Any) {
-//        delegate?.filterProducts(self)
         self.onTapSortButton?()
     }
     
@@ -79,5 +73,4 @@ extension UIButton{
         self.setImage(tintedImage, for: .normal)
         self.tintColor = color
     }
-
 }
