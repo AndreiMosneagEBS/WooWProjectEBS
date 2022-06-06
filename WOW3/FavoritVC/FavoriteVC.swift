@@ -22,7 +22,22 @@ class FavoriteVC: UIViewController {
         self.products = FavoriteManager.shared.getAllFavorites()
         generateAllSectionsFavorites()
         configCollectionView()
+//        setupNavigationBarItem()
+//        addBackbutton ()
     }
+    //    MARK: - CONFIGURATION
+    
+//    private func setupNavigationBarItem() {
+//        var imageBack = UIImage (named: "Arrow")
+//        imageBack = imageBack?.withRenderingMode(.alwaysOriginal)
+//        var imageFavorite = UIImage (named: "IconHeartFull")
+//        imageFavorite = imageFavorite?.withRenderingMode(.alwaysOriginal)
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem ( image: imageFavorite, style: .done, target: nil, action: nil)
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem ( image: imageBack, style: .plain, target: nil, action: #selector(UINavigationController.popViewController(animated:)))
+//        
+//
+//    }
+
     
     private func configCollectionView() {
         favoritesCollectionView.delegate = self
@@ -33,12 +48,41 @@ class FavoriteVC: UIViewController {
     }
         
     private func generateFavoriteProducts(articles: [Products]) -> FavoriteSections.Section {
-        var newcell: [FavoriteSections.CellType] = articles.map { favorites in
+        let newcell: [FavoriteSections.CellType] = articles.map { favorites in
             return FavoriteSections.CellType.favorites(model: favorites)
         }
         let prodcutCell: FavoriteSections.Section = FavoriteSections.Section(type: .product , cell: newcell)
         return prodcutCell
     }
+    
+    
+    @IBAction func backButtonFavorites(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+
+    
+//    func addBackbutton () {
+//
+//        let backButton = UIButton (type: .custom)
+//        backButton.setImage(UIImage(named: "Arrow"), for: .normal)
+//        backButton.setTitleColor(.blue, for: .normal)
+//        backButton.frame = CGRect (x: 0, y: 0, width: 30, height: 50)
+//        backButton.addTarget(self, action: #selector(self.backAction), for: .touchUpInside)
+//        let view = UIView (frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+////        view.bounds = view.bounds.offsetBy(dx: 0, dy: -2)
+//        view.addSubview(backButton)
+//        let backButtonView = UIBarButtonItem(customView: view )
+//
+//        navigationItem.leftBarButtonItem = backButtonView
+//
+//        navigationItem.rightBarButtonItem = .init(customView: view)
+//    }
+//    @objc func backAction () {
+//        self.navigationController?.popViewController(animated: true)
+//    }
+    
+    
     
     func generateHiderSection()-> FavoriteSections.Section {
         var headerSectionCell: [FavoriteSections.CellType] = []
@@ -105,6 +149,7 @@ extension FavoriteVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLa
         
         }
     }
+
     
 }
 

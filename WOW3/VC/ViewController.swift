@@ -55,16 +55,12 @@ class ViewController: UIViewController {
                     navigationController?.navigationBar.standardAppearance = appearance;
                     navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
                 }
-        navigationController?.navigationBar.backgroundColor = hexStringToUIColor(hex: "#07195C")
+//        navigationController?.navigationBar.backgroundColor = hexStringToUIColor(hex: "#07195C")
         let logo = UIImage(named: "Logo")
         let imageView = UIImageView(image: logo)
         imageView.contentMode = .scaleAspectFit
         self.navigationItem.titleView = imageView
 
-    }
-    
-    func setupFotterButton() {
-        footerButton.layer.cornerRadius = footerButton.bounds.height / 2
     }
     
     private func configureCollection() {
@@ -78,6 +74,10 @@ class ViewController: UIViewController {
         
         
     }
+    func setupFotterButton() {
+        footerButton.layer.cornerRadius = footerButton.bounds.height / 2
+    }
+    
     
     private func generateProductsSection(_ article:[Products] ) -> ProductCellType.Sections {
         var newCells: [ProductCellType.CellType] = []

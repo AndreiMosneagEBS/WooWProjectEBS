@@ -18,6 +18,11 @@ class ProductViewController: UIViewController, UICollectionViewDelegate{
         configureTableView()
         generateProductSection()
     }
+    @IBAction func backButtonProduct(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+
+    }
+    
     
      func setup(model: Products) {
         self.model = model
